@@ -2,8 +2,8 @@
     {
         "id": 1,
         "name": "Logitech G PRO X 60 LIGHTSPEED",
-        "image": "./homeimg/logitech-keyboard-a.webp",
-        "hoverImage": "./homeimg/keyboard-2.webp",
+        "image": "https://resource.logitechg.com/w_692,c_lpad,ar_4:3,q_auto,f_auto,dpr_2.0/d_transparent.gif/content/dam/gaming/en/products/pro-x60-wireless-keyboard/gallery/pro-x-60-keyboard-black-gallery-1-us.png?v=1",
+        "hoverImage": "https://resource.logitechg.com/w_692,c_lpad,ar_4:3,q_auto,f_auto,dpr_2.0/d_transparent.gif/content/dam/gaming/en/products/pro-x60-wireless-keyboard/gallery/pro-x-60-keyboard-black-gallery-4-us.png?v=1",
         "price": 159.99,
         "discountPrice": 727.22,
         "discount": -22
