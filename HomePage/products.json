@@ -1,0 +1,38 @@
+[
+    {
+        "id": 1,
+        "name": "Logitech G PRO X 60 LIGHTSPEED",
+        "image": "./homeimg/logitech-keyboard-a.webp",
+        "hoverImage": "./homeimg/keyboard-2.webp",
+        "price": 159.99,
+        "discountPrice": 727.22,
+        "discount": -22
+    },
+    {
+        "id": 2,
+        "name": "MX Anywhere 3S",
+        "image": "./homeimg/logitech-mouse.webp",
+        "hoverImage": "./homeimg/logitech-mouse-hover.webp",
+        "price": 149.99,
+        "discountPrice": 833.27,
+        "discount": -18
+    },
+    {
+        "id": 3,
+        "name": "REFURBISHED PRO X 2 LIGHTSPEED",
+        "image": "./homeimg/headphones.webp",
+        "hoverImage": "./homeimg/headphones-hover-2.webp",
+        "price": 279.99,
+        "discountPrice": 1399.95,
+        "discount": -20
+    },
+    {
+        "id": 4,
+        "name": "ASUS ROG Zephyrus G16 OLED",
+        "image": "./homeimg/ASUS-rog.webp",
+        "hoverImage": "./homeimg/ASUS-rog-hover-a.webp",
+        "price": 1959.99,
+        "discountPrice": 5599.97,
+        "discount": -35
+    }
+]
