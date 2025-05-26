@@ -11,7 +11,7 @@
     {
         "id": 2,
         "name": "MX Anywhere 3S",
-        "image": "https://resource.logitech.com/w_2443,h_1374,ar_16:9,c_pad,q_auto,f_auto,dpr_1.0/d_transparent.gif/content/dam/logitech/en/products/mice/mx-anywhere-3s/product-gallery/rose/mx-anywhere-3s-mouse-top-view-rose.png",
+        "image": "./homeimg/logitech-mouse.webp",
         "hoverImage": "./homeimg/logitech-mouse-hover.webp",
         "price": 149.99,
         "discountPrice": 833.27,
