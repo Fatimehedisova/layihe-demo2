@@ -1,4 +1,4 @@
-fetch("products.json")
+fetch("./products.json")
     .then(res => res.json())
     .then(data => {
         let products = document.getElementById("product-container");
