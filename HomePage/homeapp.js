@@ -1,6 +1,8 @@
 fetch("./products.json")
     .then(res => res.json())
     .then(data => {
+        console.log(data);
+        
         let products = document.getElementById("product-container");
         products.innerHTML = "";
         data.forEach(product => {
@@ -15,7 +17,7 @@ fetch("./products.json")
              <span class="box-price">${product.price}${baseCurrencySimvol[selectedCurrency]}</span> 
             <span class="box-discountPrice"> ${product.discountPrice}${baseCurrencySimvol[selectedCurrency]}</span></div>
             `
-            let img = box.querySelecprotor(".product-img");
+            let img = box.querySelector(".product-img");
             img.addEventListener("mouseenter", () => {
                 img.src = product.hoverImage;
             })
