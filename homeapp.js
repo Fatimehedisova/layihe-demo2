@@ -1,8 +1,13 @@
+fetch('./header.html')
+    .then(response => response.text())
+    .then(data => {
+        document.getElementById('header-placeholder').innerHTML = data;
+    });
 fetch("./products.json")
     .then(res => res.json())
     .then(data => {
         console.log(data);
-        
+
         let products = document.getElementById("product-container");
         products.innerHTML = "";
         data.forEach(product => {
