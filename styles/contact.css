@@ -267,3 +267,48 @@ ul i {
     border-radius: 20px;
     width: 60%;
 }
+.last-part{
+    font-size: 20px;
+    padding: 100px;
+    display: grid;
+    grid-template-columns: repeat(5,1fr);
+    background-color: #555;
+    color: white;
+    column-gap: 80px;
+}
+.last-part h3{
+    font-family: 'Orbitron';
+}
+.last-part p,.media i{
+    margin-top: 20px;
+}
+.media{
+    display: flex;
+    gap: 20px;
+}
+.media i{
+    width: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;    
+    height: 30px;
+    border-radius: 50%;
+    background-color: red;
+}
+.icon-text{
+    display: flex;
+    align-items: center;
+}
+.icon-text h3{
+    margin-left: 10px;
+    width: 300px;
+}
+.part{
+    width: 80%;
+}
+.part h3{
+    margin: 20px 0;
+}
+.part i{
+    font-size: 30px;
+}
