@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./contact.css">
+    <link rel="stylesheet" href="./styles/contact.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -14,6 +14,51 @@
 </head>
 
 <body>
+      <header>
+        <div class="top-part">
+            <div class="top-part-left">
+                <img src="./homeimg/turbogame.png" alt="img">
+                <div class="search">
+                    <input type="text" placeholder="search">
+                    <i class="fa-solid fa-magnifying-glass" style="color: #000000;"></i>
+                </div>
+            </div>
+            <div class="icons">
+                <i class="fa-regular fa-user" style="color: #ffffff;"></i>
+                <i class="fa-regular fa-heart" style="color: #ffffff;"></i>
+                <i class="fa-solid fa-basket-shopping" style="color: #ffffff;"></i>
+            </div>
+        </div>
+        <div class="trapezoid-container">
+            <div class="trapezoid"></div>
+        </div>
+    </header>
+    <nav class="navbar">
+        <ul class="nav-item">
+            <li><a href="./index.html">Home</a></li>
+            <li><a href="#text-with-icons">About us</a></li>
+            <li><a href="./contact.html">Contact</a></li>
+            <li><span>Currency</span><i class="fa-solid fa-chevron-down currency-icon" style="color: #000000;"></i>
+                <div class="dropdown-menu">
+                    <button>USD</button>
+                    <button>AZN</button>
+                    <button>RUB</button>
+                </div>
+            </li>
+            <li><a href="#">Categories</a><i class="fa-solid fa-chevron-down categories-icon"
+                    style="color: #000000;"></i>
+                <div class="categories-menu">
+                    <a href="#">Gaming Accessories</a>
+                    <a href="#">Gaming Hardware</a>
+                    <a href="#">Gamer Comfort Gear</a>
+                    <a href="#">Consoles & Games</a>
+                    <a href="#">Gamer Room & Decor</a>
+                    <a href="#">Cables & Streaming Gear</a>
+                </div>
+            </li>
+        </ul>
+    </nav>
+
     <div class="element">
         <iframe
             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3751.029765299574!2d-99.35011932499977!3d19.923150481463722!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85d22fbb3d848b29%3A0xde9484bf8260b8b2!2sTURBO%20GAMER!5e0!3m2!1sen!2saz!4v1748301147299!5m2!1sen!2saz"
