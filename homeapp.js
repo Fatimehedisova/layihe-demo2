@@ -28,36 +28,38 @@ fetch("./products.json")
         });
     });
 let dropMenu = document.querySelector(".dropdown-menu");
-let currencyIcon = document.querySelector(".currency-icon")
-let flag = false;
+let currencyIconContainer = document.querySelector(".currency-hover");
+let currencyIcon = currencyIconContainer.querySelector("i");
+let currencyFlag = false;
+let categoriesFlag=false;
 let categoriesMenu = document.querySelector('.categories-menu')
 let categoriesIcon = document.querySelector('.categories-icon')
 categoriesIcon.addEventListener('click', () => {
-    if (!flag) {
+    if (!categoriesFlag) {
         categoriesMenu.style.display = "flex"
         categoriesIcon.classList.remove("fa-chevron-down")
         categoriesIcon.classList.add("fa-chevron-up")
-        flag = true;
+        categoriesFlag = true;
     }
     else {
         categoriesMenu.style.display = "none"
         categoriesIcon.classList.remove("fa-chevron-up")
         categoriesIcon.classList.add("fa-chevron-down")
-        flag = false;
+        categoriesFlag= false;
     }
 })
-currencyIcon.addEventListener("mouseover", () => {
-    if (!flag) {
+currencyIconContainer.addEventListener("click", () => {
+    if (!currencyFlag) {
         dropMenu.style.display = "flex"
         currencyIcon.classList.remove("fa-chevron-down")
         currencyIcon.classList.add("fa-chevron-up")
-        flag = true;
+        currencyFlag= true;
     }
     else {
         dropMenu.style.display = "none"
         currencyIcon.classList.remove("fa-chevron-up")
         currencyIcon.classList.add("fa-chevron-down")
-        flag = false;
+        currencyFlag= false;
     }
 })
 let selectedCurrency = "USD";
@@ -86,7 +88,7 @@ async function exchange() {
         dropMenu.style.display = "none";
         currencyIcon.classList.add("fa-chevron-down");
         currencyIcon.classList.remove("fa-chevron-up");
-        flag = false;
+        currencyFlag= false;
     })
 })
 
