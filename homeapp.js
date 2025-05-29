@@ -5,7 +5,7 @@ fetch("./products.json")
 
         let products = document.getElementById("product-container");
         products.innerHTML = "";
-        data.forEach(product => {
+        data.slice(0,4).map(product => {
             let box = document.createElement('div');
             box.className = "box";
             box.dataset.price = product.price;
@@ -14,7 +14,7 @@ fetch("./products.json")
             <img class="product-img" src="${product.image}" alt="${product.name}">
             <p class="box-text">${product.name}</p>
             <div class="prices">
-             <span class="box-price">${product.price}${baseCurrencySimvol[selectedCurrency]}</span> 
+            <span class="box-price">${product.price}${baseCurrencySimvol[selectedCurrency]}</span> 
             <span class="box-discountPrice"> ${product.discountPrice}${baseCurrencySimvol[selectedCurrency]}</span></div>
             `
             let img = box.querySelector(".product-img");
@@ -31,7 +31,7 @@ let dropMenu = document.querySelector(".dropdown-menu");
 let currencyIconContainer = document.querySelector(".currency-hover");
 let currencyIcon = currencyIconContainer.querySelector("i");
 let currencyFlag = false;
-let categoriesFlag=false;
+let categoriesFlag = false;
 let categoriesMenu = document.querySelector('.categories-menu')
 let categoriesIcon = document.querySelector('.categories-icon')
 categoriesIcon.addEventListener('click', () => {
@@ -45,7 +45,7 @@ categoriesIcon.addEventListener('click', () => {
         categoriesMenu.style.display = "none"
         categoriesIcon.classList.remove("fa-chevron-up")
         categoriesIcon.classList.add("fa-chevron-down")
-        categoriesFlag= false;
+        categoriesFlag = false;
     }
 })
 currencyIconContainer.addEventListener("click", () => {
@@ -53,13 +53,13 @@ currencyIconContainer.addEventListener("click", () => {
         dropMenu.style.display = "flex"
         currencyIcon.classList.remove("fa-chevron-down")
         currencyIcon.classList.add("fa-chevron-up")
-        currencyFlag= true;
+        currencyFlag = true;
     }
     else {
         dropMenu.style.display = "none"
         currencyIcon.classList.remove("fa-chevron-up")
         currencyIcon.classList.add("fa-chevron-down")
-        currencyFlag= false;
+        currencyFlag = false;
     }
 })
 let selectedCurrency = "USD";
@@ -88,7 +88,7 @@ async function exchange() {
         dropMenu.style.display = "none";
         currencyIcon.classList.add("fa-chevron-down");
         currencyIcon.classList.remove("fa-chevron-up");
-        currencyFlag= false;
+        currencyFlag = false;
     })
 })
 
