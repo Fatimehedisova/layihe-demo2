@@ -189,6 +189,8 @@ ul i {
     justify-content: space-between;
 }
 .product-side{
+    display: flex;
+    gap: 70px;
     margin-top: 80px;
     margin-left: 80px;
 }
@@ -227,4 +229,19 @@ ul i {
 .products-price, .product-name{
     text-align: center;
     font-size: 2vw;
+}
+.side-right-top{
+    font-size: 25px;
+    margin-bottom: 50px;
+}
+.side-right-top span{
+    font-weight: 900;
+}
+.categories-product-box{
+    font-size: 20px;
+    background-color: #f2efef;
+    margin-bottom: 20px;
+    padding: 20px;
+    width: 20vw;
+    border-radius: 10px;
 }

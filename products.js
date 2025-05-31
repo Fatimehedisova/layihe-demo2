@@ -13,4 +13,16 @@ fetch('./products.json')
         `
         productsProduct.appendChild(productGrid)
     })
+    
+})
+
+let products= document.querySelector('.products')
+let gridProduct = document.querySelector('.grid-change')
+let grid2 = gridProduct.querySelector('.grid-2')
+let grid1 = gridProduct.querySelector('.grid-1')
+grid2.addEventListener('click',()=>{
+    products.style.gridTemplateColumns = 'repeat(2,1fr)'
+})
+grid1.addEventListener('click',()=>{
+     products.style.gridTemplateColumns = 'repeat(3,1fr)'
 })
