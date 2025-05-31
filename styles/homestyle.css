@@ -151,16 +151,13 @@ ul i {
 
 .dots {
     position: absolute;
-    /* left: 50%; */
     right: 50%;
     bottom: 0%;
     text-align: center;
 }
 
 .slideshow-container {
-    /* max-width: 1000px; */
     position: relative;
-    /* margin: auto; */
 }
 
 .prev,
@@ -206,16 +203,6 @@ ul i {
     animation-duration: 2.5s;
 }
 
-.hero-1 {
-    background-size: contain;
-    /* Şəklin tam görünməsi üçün */
-    background-repeat: no-repeat;
-    /* Təkrar etməsin */
-    background-position: center center;
-    /* Şəkli ortada yerləşdir */
-    /* height: 100vh;  */
-}
-
 /* 
 @keyframes fade {
   from {opacity: .4}
@@ -225,22 +212,24 @@ ul i {
     display: none;
 }
 
-.hero-3 {
-    /* width: 100%;
-    height: 100%; */
-    object-fit: cover;
-}
-
-.hero-text {
+.hero-text-1, .hero-text-2, .hero-text-3 {
     text-align: start;
     position: absolute;
     top: 50%;
-    left: 30%;
+    left: 77%;
     transform: translate(-50%, -50%);
+    color: black;
+}
+.hero-text-2,.hero-text-3{
     color: white;
+    width: 30vw;
+
+}
+.hero-text-3 {
+    left: 30%;
 }
 
-.hero-text button {
+.hero-text-1 button, .hero-text-2 button,.hero-text-3 button{
     border: none;
     outline: 0;
     display: inline-block;
@@ -252,13 +241,12 @@ ul i {
     border-radius: 5px;
 }
 
-.hero-text h1 {
-    /* width: 50vw; */
+.hero-text-1 h1, .hero-text-2 h1,.hero-text-3 h1{
     font-size: 4vw;
     margin-bottom: 20px;
 }
 
-.hero-text button:hover {
+.hero-text-1 button:hover,.hero-text-2 button:hover,.hero-text-3 button:hover {
     background-color: #555;
     color: white;
 }
@@ -267,6 +255,10 @@ ul i {
     position: absolute;
     left: 45%;
     top: 20%;
+}
+.direction i{
+    font-size: 50px;
+    /* font-weight: 100; */
 }
 
 .hero-image img {
