@@ -39,6 +39,7 @@ header {
     border-radius: 5px;
     width: 40vw;
 }
+
 .search input {
     font-size: 17px;
     width: 80%;
@@ -127,142 +128,147 @@ ul i {
     font-size: 18px;
 
 }
-.categories-menu-item{
+
+.categories-menu-item {
     display: flex;
     flex-direction: column;
 }
-.categories-menu-item a{
+
+.categories-menu-item a {
     margin-bottom: 15px;
 }
+
 .dropdown-menu button {
     border: none;
     background-color: #d9d9d9;
     font-size: 16px;
 }
-.last-part{
+
+.last-part {
     font-size: 20px;
     padding: 100px;
     display: grid;
-    grid-template-columns: repeat(5,1fr);
+    grid-template-columns: repeat(5, 1fr);
     background-color: #555;
     color: white;
     column-gap: 80px;
 }
-.last-part h3{
+
+.last-part h3 {
     font-family: 'Orbitron';
 }
-.last-part p,.media i{
+
+.last-part p,
+.media i {
     margin-top: 20px;
 }
-.media{
+
+.media {
     display: flex;
     gap: 20px;
 }
-.media i{
+
+.media i {
     width: 30px;
     display: flex;
     justify-content: center;
-    align-items: center;    
+    align-items: center;
     height: 30px;
     border-radius: 50%;
     background-color: red;
 }
-.icon-text{
+
+.icon-text {
     display: flex;
     align-items: center;
 }
-.icon-text h3{
+
+.icon-text h3 {
     margin-left: 10px;
     width: 300px;
 }
-.part{
+
+.part {
     width: 80%;
 }
-.part h3{
+
+.part h3 {
     margin: 20px 0;
 }
-.part i{
+
+.part i {
     font-size: 30px;
 }
-.side-top{
+
+.product-favorite-card {
+    width: 90%;
+
     display: flex;
+    align-items: center;
     justify-content: space-between;
+    margin: 1.2rem auto;
+    border: 1px solid rgb(215, 213, 213);
+    border-radius: 10px;
+    padding: 10px 50px;
 }
-.product-side{
-    display: flex;
-    gap: 70px;
-    margin-top: 80px;
-    margin-left: 80px;
+
+/* box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;} */
+#favorite-list {
+    display: grid;
+    gap: 20px;
+    grid-template-columns: 1fr;
+    gap: 10px;
 }
-.products-side-left{
-    width: 70%;
+
+.favorite-img {
+    width: 250px;
+    height: 150px;
+
+    .favorite-product-img {
+        width: 200px;
+        height: 100%;
+        object-fit: cover;
+        /* max-height: 15vh; */
+    }
 }
-.grid-change{
+
+.favorite-about {
     display: flex;
     align-items: center;
     gap: 20px;
 }
-.sort-dropdown select{
+
+.favorite-title {
+    margin-bottom: 2em;
+}
+
+.favorite-price {
+    font-weight: 800;
+}
+
+.product-view {
+    padding: 20px 30px;
     border: none;
-    outline: none;
-    font-size: 20px;
-}
-.grid-change i{
-    font-size: 30px;
-}
-.products{
-    margin: 70px 0; 
-    display: grid;
-    grid-template-columns: repeat(3,1fr);
-    gap: 20px;
-}
-.productGrid{
-    position: relative;
-      border: 1px solid rgb(231, 230, 230);
-      border-radius: 10px;
-}
-.favorite-btn{
-    position: absolute;
-    top: 5%;
-    right: 5%;
-    font-size: 1.2rem;
-}
-.products img{
-    display: block;
-    width: 100%;
-    /* height: auto; */
-    /* height: 300px; */
-    margin: 0 auto;
-}
-.products-price, .product-name{
-    text-align: center;
-    font-size: 2vw;
-}
-.side-right-top, .categories-right-bottom {
-    font-size: 25px;
-    margin-bottom: 50px;
-}
-.side-right-top span, .categories-right-bottom span{
-    font-weight: 900;
-}
-.categories-right-bottom {
-    margin-top: 50px;
-}
-.categories-product-box{
-    /* font-size: 20px; */
-    background-color: #f2efef;
-    margin-bottom: 5px;
-    padding: 20px;
-    width: 20vw;
     border-radius: 10px;
+    background-color: black;
+    color: white;
+    font-size: 1vw;
 }
-.categories-product-box a, .categories-product-box button{
-    font-weight: 500;
-    font-size: 1.2rem;
-    text-decoration: none;
-    color: black;
-    display: block;
-}
-.categories-product-box button{
+
+.delete-favorite {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: transparent;
     border: none;
+    font-size: 1.2rem;
+    color: black;
+    cursor: pointer;
+    /* transition: 0.2s ease-in-out; */
+}
+
+.heading_sort h1 {
+    width: 90%;
+    margin: 70px auto 10px;
+    font-size: 50px;
 }

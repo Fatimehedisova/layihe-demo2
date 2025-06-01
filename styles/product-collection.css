@@ -1,5 +1,4 @@
 @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400..900&display=swap');
-
 * {
     margin: 0;
     padding: 0;
@@ -184,85 +183,52 @@ ul i {
 .part i{
     font-size: 30px;
 }
-.side-top{
+.collection-top{
     display: flex;
     justify-content: space-between;
 }
-.product-side{
-    display: flex;
-    gap: 70px;
-    margin-top: 80px;
-    margin-left: 80px;
-}
-.products-side-left{
-    width: 70%;
-}
-.grid-change{
+.colleciton-grid-change{
     display: flex;
     align-items: center;
     gap: 20px;
 }
-.sort-dropdown select{
+.collection-sort-dropdown select{
     border: none;
     outline: none;
     font-size: 20px;
 }
-.grid-change i{
+.collection-grid-change i{
     font-size: 30px;
+    margin-left: 10px;
 }
-.products{
-    margin: 70px 0; 
-    display: grid;
-    grid-template-columns: repeat(3,1fr);
+.collection-container{
+    width: 90%;
+    margin: 80px auto;
+}
+.collection-main-grid{
+    margin-top: 20px;
+     display: grid;
+    grid-template-columns: repeat(4,1fr);
     gap: 20px;
 }
-.productGrid{
-    position: relative;
-      border: 1px solid rgb(231, 230, 230);
-      border-radius: 10px;
-}
-.favorite-btn{
-    position: absolute;
-    top: 5%;
-    right: 5%;
-    font-size: 1.2rem;
-}
-.products img{
+
+.product-card img{
     display: block;
     width: 100%;
-    /* height: auto; */
-    /* height: 300px; */
+    height: auto;
     margin: 0 auto;
 }
-.products-price, .product-name{
+.cm-products-price, .cm-product-name{
     text-align: center;
     font-size: 2vw;
 }
-.side-right-top, .categories-right-bottom {
-    font-size: 25px;
-    margin-bottom: 50px;
+.product-card {
+  border: 1px solid rgb(231, 230, 230);
+  border-radius: 10px;
+  padding: 10px;
 }
-.side-right-top span, .categories-right-bottom span{
-    font-weight: 900;
-}
-.categories-right-bottom {
-    margin-top: 50px;
-}
-.categories-product-box{
-    /* font-size: 20px; */
-    background-color: #f2efef;
-    margin-bottom: 5px;
-    padding: 20px;
-    width: 20vw;
-    border-radius: 10px;
-}
-.categories-product-box a, .categories-product-box button{
-    font-weight: 500;
-    font-size: 1.2rem;
-    text-decoration: none;
-    color: black;
-    display: block;
-}
-.categories-product-box button{
-    border: none;
+
+.cm-product-name, .cm-products-price {
+  text-align: center;
+  font-size: 2vw;
 }

@@ -4,14 +4,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
-        integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="./styles/product-collection.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
         rel="stylesheet">
-    <link rel="stylesheet" href="./styles/products.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+        integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
     <title>Document</title>
 </head>
 
@@ -26,7 +26,8 @@
                 </div>
             </div>
             <div class="icons">
-                <a href="./favorites.html"><i class="fa-regular fa-heart" style="color: #ffffff;"></i></a>
+                <i class="fa-regular fa-user" style="color: #ffffff;"></i>
+                <i class="fa-regular fa-heart" style="color: #ffffff;"></i>
                 <i class="fa-solid fa-basket-shopping" style="color: #ffffff;"></i>
             </div>
         </div>
@@ -104,61 +105,32 @@
         </ul>
     </nav>
     <main>
-        <section class="product-side">
-            <div class="products-side-left">
-                <div class="side-top">
-                    <div class="sort-dropdown">
-                        <select id="sortOptions">
-                            <option value="featured">Sort by Featured</option>
-                            <option value="az">Alphabetically (A-Z)</option>
-                            <option value="za">Alphabetically (Z-A)</option>
-                            <option value="low-high">Price (low to high)</option>
-                            <option value="high-low">Price (high to low)</option>
+        <section>
+            <div class="collection-container">
+                <div class="collection-top">
+                    <div class="collection-sort-dropdown">
+                        <select>
+                            <option>Sort by Featured</option>
+                            <option>Alphabetically (A-Z)</option>
+                            <option>Alphabetically (Z-A)</option>
+                            <option>Price (low to high)</option>
+                            <option>Price (high to low)</option>
                         </select>
                     </div>
-                    <div class="grid-change">
-                        <i class="fa-solid fa-table-cells grid-1" style="color: #000000;"></i>
-                        <i class="fa-solid fa-border-all grid-2" style="color: #000000;"></i>
-                        <i class="fa-solid fa-list-ul grid-3" style="color: #000000;"></i>
+                    <div class="collection-grid-change">
+                        <i class="fa-solid fa-table-cells grid-c1" style="color: #000000;"></i>
+                        <i class="fa-solid fa-border-all grid-c2" style="color: #000000;"></i>
+                        <i class="fa-solid fa-list-ul grid-c3" style="color: #000000;"></i>
                     </div>
+
                 </div>
-                <div class="side-left">
-                    <div class="products" id="categories-product">
-                       
+                <div class="collection-main">
+                    <div class="collection-main-grid" id="collection-categories-product">
+                        
                     </div>
                 </div>
             </div>
 
-            <div class="side-right">
-                <div class="side-right-top">
-                    <i class="fa-solid fa-bars" style="color: #000000;"></i>
-                    <span>Categories</span>
-                </div>
-                <div class="categories-right">
-                    <div class="categories-product-box">
-                        <a href="./product-collection.html?category=keyboard">Keyboards</a>
-                    </div>
-                    <div class="categories-product-box">
-                        <a href="#">Headphone</a>
-                    </div>
-                    <div class="categories-product-box">
-                        <a href="#">Gaming Phones</a>
-                    </div>
-                    <div class="categories-product-box">
-                        <a href="./product-collection.html?category=mouse">Mouse</a>
-                    </div>
-                    <div class="categories-product-box">
-                        <a href="#">Gaming Controllers</a>
-                    </div>
-                    <div class="categories-product-box">
-                        <button class="more-btn">See More +</button>
-                    </div>
-                </div>
-                <div class="categories-right-bottom">
-                    <i class="fa-solid fa-sliders" style="color: #000000;"></i>
-                    <span>Filter By</span>
-                </div>
-            </div>
         </section>
     </main>
     <footer>
@@ -211,7 +183,7 @@
             </div>
         </section>
     </footer>
-    <script src="./products.js"></script>
+    <script src="./products-collection.js"></script>
 </body>
 
 </html>

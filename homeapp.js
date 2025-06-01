@@ -137,4 +137,4 @@ document.querySelector(".prev").addEventListener("click", () => plusSlides(-1));
 document.querySelector(".next").addEventListener("click", () => plusSlides(1));
 setInterval(() => {
   plusSlides(1);
-}, 3000);
+}, 5000);
