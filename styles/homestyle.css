@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400..900&display=swap');
+
 * {
     margin: 0;
     padding: 0;
@@ -38,6 +39,7 @@ header {
     border-radius: 5px;
     width: 40vw;
 }
+
 .search input {
     font-size: 17px;
     width: 80%;
@@ -126,13 +128,16 @@ ul i {
     font-size: 18px;
 
 }
-.categories-menu-item{
+
+.categories-menu-item {
     display: flex;
     flex-direction: column;
 }
-.categories-menu-item a{
+
+.categories-menu-item a {
     margin-bottom: 15px;
 }
+
 .dropdown-menu button {
     border: none;
     background-color: #d9d9d9;
@@ -203,16 +208,13 @@ ul i {
     animation-duration: 2.5s;
 }
 
-/* 
-@keyframes fade {
-  from {opacity: .4}
-  to {opacity: 1}
-} */
 .my-slides {
     display: none;
 }
 
-.hero-text-1, .hero-text-2, .hero-text-3 {
+.hero-text-1,
+.hero-text-2,
+.hero-text-3 {
     text-align: start;
     position: absolute;
     top: 50%;
@@ -220,16 +222,21 @@ ul i {
     transform: translate(-50%, -50%);
     color: black;
 }
-.hero-text-2,.hero-text-3{
+
+.hero-text-2,
+.hero-text-3 {
     color: white;
     width: 30vw;
 
 }
+
 .hero-text-3 {
     left: 30%;
 }
 
-.hero-text-1 button, .hero-text-2 button,.hero-text-3 button{
+.hero-text-1 button,
+.hero-text-2 button,
+.hero-text-3 button {
     border: none;
     outline: 0;
     display: inline-block;
@@ -241,12 +248,16 @@ ul i {
     border-radius: 5px;
 }
 
-.hero-text-1 h1, .hero-text-2 h1,.hero-text-3 h1{
+.hero-text-1 h1,
+.hero-text-2 h1,
+.hero-text-3 h1 {
     font-size: 4vw;
     margin-bottom: 20px;
 }
 
-.hero-text-1 button:hover,.hero-text-2 button:hover,.hero-text-3 button:hover {
+.hero-text-1 button:hover,
+.hero-text-2 button:hover,
+.hero-text-3 button:hover {
     background-color: #555;
     color: white;
 }
@@ -256,7 +267,8 @@ ul i {
     left: 45%;
     top: 20%;
 }
-.direction i{
+
+.direction i {
     font-size: 50px;
     /* font-weight: 100; */
 }
@@ -286,6 +298,7 @@ ul i {
 }
 
 .hero-box {
+    width: 100%;
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
     height: calc(300px * 1.2);
     background-position: center;
@@ -298,7 +311,7 @@ ul i {
 }
 
 .hero-box h1 {
-    font-size: 35px;
+    font-size: 2.5vw;
     text-align: start;
     position: absolute;
     top: 50%;
@@ -323,8 +336,8 @@ ul i {
     cursor: pointer;
     position: absolute;
     top: 80%;
-    left: 55%;
-    font-size: 16px;
+    right: 40px;
+    font-size: 1.2vw;
     border-radius: 5px;
 }
 
@@ -354,11 +367,12 @@ ul i {
     border: 1px solid gray;
     overflow: hidden;
     border-radius: 10px;
+    padding: 5px;   
 }
 
 .box img {
     width: 100%;
-    height: 215px;
+    height: auto;
 }
 
 .box-text {
@@ -366,19 +380,21 @@ ul i {
     margin-left: 15px;
     margin-top: 10px;
     height: 40px;
+    /* font-size: 1.1vw; */
     font-weight: 500;
 }
 
 .percent {
     position: absolute;
-    left: 75%;
+    right: 20px;
+    top: 0;
     display: flex;
     align-items: center;
     justify-content: center;
     width: 56px;
     height: 56px;
     background-size: cover;
-    font-size: 18px;
+    font-size: 1.3vw;
     font-weight: 700;
     background-color: red;
     color: #fff;
@@ -389,7 +405,7 @@ ul i {
 .box-price {
     margin-left: 15px;
     text-align: start;
-    font-size: 25px;
+    font-size: 1.5vw;
     font-weight: 500;
 }
 
@@ -404,7 +420,6 @@ ul i {
 .sale {
     margin: 100px auto;
     width: 90vw;
-    
     min-height: 500px;
     height: 80vh;
     background-position: center;
@@ -414,24 +429,29 @@ ul i {
     overflow: hidden;
 }
 
-.sale h1, .sale p, #timer {
+.sale h1,
+.sale p,
+#timer {
     position: absolute;
     width: 50vw;
     left: 50%;
-    top: 25%;
+    top: 125px;
     color: white;
     font-size: 6vw;
 }
-#timer{
+
+#timer {
     top: 45%;
     font-size: 3vw;
 }
-.sale p{
+
+.sale p {
     left: 50.5%;
-    top:25%;
+    top: 25%;
     font-size: 1vw;
 }
-.about-us{
+
+.about-us {
     text-align: center;
     margin: 80px auto;
     width: 100%;
@@ -439,48 +459,121 @@ ul i {
     gap: 100px;
     padding: 50px;
 }
-.last-part{
+
+.last-part {
     font-size: 20px;
-    padding: 100px;
-    display: grid;
-    grid-template-columns: repeat(5,1fr);
+    padding: 60px 20px;
+
     background-color: #555;
     color: white;
-    column-gap: 80px;
+
+
 }
-.last-part h3{
-    font-family: 'Orbitron';
+
+.last-part-boxes {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    width: 90%;
+    margin: 0 auto;
+    column-gap: 40px;
+    row-gap: 40px;
 }
-.last-part p,.media i{
+
+.last-part h3 {
+    font-family: 'Orbitron', sans-serif;
+    text-transform: capitalize;
+}
+
+.last-part p,
+.media i {
     margin-top: 20px;
 }
-.media{
+
+.media {
+
     display: flex;
     gap: 20px;
+    flex-wrap: wrap;
 }
-.media i{
+
+.media i {
     width: 30px;
+    height: 30px;
     display: flex;
     justify-content: center;
-    align-items: center;    
-    height: 30px;
+    align-items: center;
     border-radius: 50%;
-    background-color: red;
+    background-color: #333;
+    color: white;
+    font-size: 16px;
 }
-.icon-text{
+
+.icon-text {
     display: flex;
     align-items: center;
+    /* flex-wrap: wrap; */
 }
-.icon-text h3{
+
+.icon-text h3 {
     margin-left: 10px;
-    width: 300px;
+    width: 20vw;
 }
-.part{
+
+.part {
     width: 80%;
 }
-.part h3{
+
+.part h3 {
     margin: 20px 0;
 }
-.part i{
+
+.part i {
     font-size: 30px;
+}
+
+@media (max-width: 1100px) {
+    .last-part-boxes {
+        column-gap: 60px;
+        row-gap: 40px;
+        grid-template-columns: repeat(2, 1fr);
+        padding: 50px 30px;
+    }
+    .hero-box h1{
+        font-size: 4.5vw;
+    }
+
+    .last-part-p {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+    }
+    .main-boxes{
+        grid-template-columns: 1fr;
+    }
+    .nav-item{
+        gap: 70px;
+    }
+}
+
+@media (max-width: 600px) {
+    .last-part {
+        grid-template-columns: 1fr;
+        padding: 40px 20px;
+        font-size: 18px;
+    }
+
+
+    .media {
+        justify-content: flex-start;
+    }
+
+    .icon-text {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .icon-text h3 {
+        margin-left: 0;
+        margin-top: 10px;
+    }
 }

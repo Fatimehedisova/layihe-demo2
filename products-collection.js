@@ -1,5 +1,6 @@
 const params = new URLSearchParams(window.location.search)
 const category = params.get('category')
+const searchQuery = localStorage.getItem('searchQuery')
 fetch('./products.json')
 .then(res=>res.json())
 .then(data=>{

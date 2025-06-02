@@ -1,3 +1,17 @@
+
+  const searchInput = document.getElementById('search-input');
+
+  searchInput.addEventListener('keypress', function (e) {
+    if (e.key === 'Enter') {
+      const query = e.target.value.trim();
+      if (query !== '') {
+        localStorage.setItem('searchQuery', query);
+        window.location.href = './product-collection.html'; 
+      }
+    }
+  });
+
+
 fetch("./products.json")
     .then(res => res.json())
     .then(data => {
@@ -69,30 +83,30 @@ let baseCurrencySimvol = {
     AZN: "₼",
     RUB: "₽"
 }
-async function exchange() {
-    const res = await fetch("https://v6.exchangerate-api.com/v6/49fd4899d730508fab0d59b2/latest/USD")
-    const data = await res.json();
-    baseCurrency = data.conversion_rates
-}
-[...document.querySelectorAll('.dropdown-menu button')].forEach(btn => {
-    btn.addEventListener('click', () => {
-        selectedCurrency = btn.textContent;
-        document.querySelectorAll(".box").forEach(box => {
-            let usd = box.dataset.price
-            let newPrice = (usd * baseCurrency[selectedCurrency]).toFixed(2);
-            let discountUsd = usd - (usd * parseFloat(box.querySelector('.percent').textContent) / 100);
-            let newDiscountPrice = (discountUsd * baseCurrency[selectedCurrency]).toFixed(2);
-            box.querySelector('.box-price').textContent = `${newPrice}${baseCurrencySimvol[selectedCurrency]} `
-            box.querySelector('.box-discountPrice').textContent = `${newDiscountPrice}${baseCurrencySimvol[selectedCurrency]} `
-        })
-        dropMenu.style.display = "none";
-        currencyIcon.classList.add("fa-chevron-down");
-        currencyIcon.classList.remove("fa-chevron-up");
-        currencyFlag = false;
-    })
-})
+// async function exchange() {
+//     const res = await fetch("https://v6.exchangerate-api.com/v6/49fd4899d730508fab0d59b2/latest/USD")
+//     const data = await res.json();
+//     baseCurrency = data.conversion_rates
+// }
+// [...document.querySelectorAll('.dropdown-menu button')].forEach(btn => {
+//     btn.addEventListener('click', () => {
+//         selectedCurrency = btn.textContent;
+//         document.querySelectorAll(".box").forEach(box => {
+//             let usd = box.dataset.price
+//             let newPrice = (usd * baseCurrency[selectedCurrency]).toFixed(2);
+//             let discountUsd = usd - (usd * parseFloat(box.querySelector('.percent').textContent) / 100);
+//             let newDiscountPrice = (discountUsd * baseCurrency[selectedCurrency]).toFixed(2);
+//             box.querySelector('.box-price').textContent = `${newPrice}${baseCurrencySimvol[selectedCurrency]} `
+//             box.querySelector('.box-discountPrice').textContent = `${newDiscountPrice}${baseCurrencySimvol[selectedCurrency]} `
+//         })
+//         dropMenu.style.display = "none";
+//         currencyIcon.classList.add("fa-chevron-down");
+//         currencyIcon.classList.remove("fa-chevron-up");
+//         currencyFlag = false;
+//     })
+// })
 
-exchange();
+// exchange();
 const timer = () => {
     let endDate = new Date('2025-07-22T23:59:00').getTime();
     setInterval(() => {
