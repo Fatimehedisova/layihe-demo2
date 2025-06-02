@@ -52,6 +52,10 @@ function renderProducts(products) {
             <div class='favorite-btn' data-id='${product.id}'><i class="fa-regular fa-heart" style="color: #000000;"></i></div>
             </div>
             `
+            productGrid.addEventListener('click',()=>{
+                localStorage.setItem('selectedProduct', JSON.stringify(product))
+                window.location.href = './detail.html'
+            })
         productsProduct.appendChild(productGrid)
     });
     document.querySelectorAll('.favorite-btn').forEach(btn => {
@@ -60,12 +64,12 @@ function renderProducts(products) {
             addToFavorites(productId)
         });
     });
-   document.querySelectorAll('.basket-btn').forEach(btn=>{
-    btn.addEventListener('click',()=>{
-        let productId = btn.getAttribute('data-id')
-        addToBasket(productId)
+    document.querySelectorAll('.basket-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+            let productId = btn.getAttribute('data-id')
+            addToBasket(productId)
+        })
     })
-   })
 }
 function addToFavorites(id) {
     let favorites = JSON.parse(localStorage.getItem('favorites')) || [];
@@ -89,20 +93,20 @@ function addToFavorites(id) {
         })
     }
 }
-function addToBasket(id){
+function addToBasket(id) {
     let basket = JSON.parse(localStorage.getItem('basket')) || [];
-    let existingItem = basket.find(item=>item.id==id)
-    if(existingItem){
+    let existingItem = basket.find(item => item.id == id)
+    if (existingItem) {
         existingItem.quantity += 1;
 
     }
-    else{
-        let product = allProducts.find(p=>p.id == id)
-        if(product){
-            basket.push({...product,quantity: 1});
+    else {
+        let product = allProducts.find(p => p.id == id)
+        if (product) {
+            basket.push({ ...product, quantity: 1 });
         }
     }
-    localStorage.setItem('basket',JSON.stringify(basket))
+    localStorage.setItem('basket', JSON.stringify(basket))
     Swal.fire({
         title: 'Added successfully!',
         icon: 'success'
@@ -233,4 +237,21 @@ function applyFilters() {
     console.log("Aktiv qiymət filtiri:", filters.price);
     console.log("Uyğun məhsullar:", filtered.map(e => e.name + ' (' + e.price + ')'));
     renderProducts(filtered)
+}
+let baseCurrency = {
+    USD: "$",
+    AZN: "₼",
+    RUB: "₽"
+}
+function getSelectedCurrency(){
+    return localStorage.getItem('selectedCurrency') || 'USD';
+}
+function getExchangeRates() {
+    return JSON.parse(localStorage.getItem('exchangeRates')) || { USD: 1, AZN: 1.7, RUB: 93 };
+}
+
+function convertPrice(priceUSD) {
+    const currency = getSelectedCurrency();
+    const rates = getExchangeRates();
+    return (priceUSD * rates[currency]).toFixed(2);
 }

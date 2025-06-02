@@ -33,6 +33,10 @@ function renderCollectionProducts(products) {
             <div class='favorite-btn' data-id='${product.id}'><i class="fa-regular fa-heart" style="color: #000000;"></i></div>
             </div>
         `
+         collectionProductGrid.addEventListener('click',()=>{
+                localStorage.setItem('selectedProduct', JSON.stringify(product))
+                window.location.href = './detail.html'
+            })
         collectionProduct.appendChild(collectionProductGrid)
     })
     document.querySelectorAll('.favorite-btn').forEach(btn => {
