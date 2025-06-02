@@ -124,7 +124,7 @@
                 </div>
                 <div class="side-left">
                     <div class="products" id="categories-product">
-                       
+
                     </div>
                 </div>
             </div>
@@ -157,6 +157,65 @@
                 <div class="categories-right-bottom">
                     <i class="fa-solid fa-sliders" style="color: #000000;"></i>
                     <span>Filter By</span>
+                </div>
+                <div class="categories-filter-boxes">
+                    <div class="clear-btn">
+                        <button class="clear-all-btn">Clear All</button>
+                    </div>
+                    <div class="filter-box">
+                        <div class="filter-box-header">
+                            <h3>Price</h3>
+                            <i class="fa-solid fa-chevron-down" style="color: #000000;"></i>
+                        </div>
+
+                        <div class="price-inputs">
+                            <div class="extr-label">
+                                <input type="text" placeholder="min.." class="from-label" id="min-price">
+                                <div class="line"></div>
+                                <input type="text" placeholder="max.." class="to-label" id="max-price">
+                            </div>
+                            <div class="inputs">
+                                <label><input type="radio" name="price" value="100-200">100-200</label>
+                                <label><input type="radio" name="price" value="300-500">300-500</label>
+                                <label><input type="radio" name="price" value="500-1000">500-1000</label>
+                                <label><input type="radio" name="price" value="1000+">1000+</label>
+                            </div>
+
+
+
+
+                        </div>
+                    </div>
+                    <div class="filter-box">
+                        <div class="filter-box-header">
+                            <h3>Categories</h3>
+                            <i class="fa-solid fa-chevron-down" style="color: #000000;"></i>
+                        </div>
+
+                        <div class="inputs">
+
+                            <label><input type="checkbox" class="category-filter" value="Mouse"> Mouse</label>
+                            <label><input type="checkbox" class="category-filter" value="Keyboard"> Keyboard</label>
+                            <label><input type="checkbox" class="category-filter" value="Monitor"> Monitor</label>
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="filter-box">
+                        <div class="filter-box-header">
+                            <h3>Brand</h3>
+                            <i class="fa-solid fa-chevron-down" style="color: #000000;"></i>
+                        </div>
+
+                        <div class="inputs">
+
+                            <label><input type="checkbox" class="brand-filter" value="Logitech"> Logitech</label>
+                            <label><input type="checkbox" class="brand-filter" value="Razer"> Razer</label>
+                            <label><input type="checkbox" class="brand-filter" value="HP"> HP</label>
+
+                        </div>
+                    </div>
+
+
                 </div>
             </div>
         </section>
@@ -212,6 +271,7 @@
         </section>
     </footer>
     <script src="./products.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </body>
 
 </html>

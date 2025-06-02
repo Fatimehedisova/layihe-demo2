@@ -4,8 +4,6 @@ fetch('./products.json')
     .then(data => {
         allProducts = data.slice(1, 10);
         renderProducts(allProducts);
-
-
     })
 function sortAndRender(option) {
     if (!allProducts.length) return;
@@ -30,8 +28,16 @@ function sortAndRender(option) {
     renderProducts(sorted)
 }
 function renderProducts(products) {
+
     let productsProduct = document.getElementById('categories-product');
     productsProduct.innerHTML = ''
+    if (products.length === 0) {
+        let noProduct = document.createElement('div');
+        noProduct.className = 'no-product';
+        noProduct.textContent = 'No product found';
+        productsProduct.appendChild(noProduct);
+        return;
+    }
     products.map(product => {
         let productGrid = document.createElement('div')
         productGrid.classList.add('productGrid');
@@ -43,25 +49,33 @@ function renderProducts(products) {
             `
         productsProduct.appendChild(productGrid)
     });
-    document.querySelectorAll('.favorite-btn').forEach(btn=>{
-        btn.addEventListener('click',()=>{
+    document.querySelectorAll('.favorite-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
             let productId = btn.getAttribute('data-id')
             addToFavorites(productId)
         });
     });
 }
-function addToFavorites(id){
-    let favorites=JSON.parse(localStorage.getItem('favorites')) || [];
-    let exists = favorites.find(item=>item.id == id)
-    if(!exists){
-        let productToAdd = allProducts.find(p=>p.id==id)
-        if(productToAdd){
+function addToFavorites(id) {
+    let favorites = JSON.parse(localStorage.getItem('favorites')) || [];
+    let exists = favorites.find(item => item.id == id)
+    if (!exists) {
+        let productToAdd = allProducts.find(p => p.id == id)
+        if (productToAdd) {
             favorites.push(productToAdd)
-            localStorage.setItem('favorites',JSON.stringify(favorites));
-            
+            localStorage.setItem('favorites', JSON.stringify(favorites));
+            Swal.fire({
+                title: 'Added to favorites!',
+                icon: 'success'
+
+            });
         }
-    }else{
-        alert('bu mehsul artiq var')
+    } else {
+        Swal.fire({
+            title: 'Already in favorites!',
+            icon: 'info'
+
+        })
     }
 }
 let sortSelect = document.querySelector(".sort-dropdown select");
@@ -135,3 +149,57 @@ currencyIconContainer.addEventListener("click", () => {
         currencyFlag = false;
     }
 })
+let filters  = {
+    price: null,
+    categories: [],
+    brands: []
+}
+let categoryFilter = document.querySelectorAll('.category-filter')
+let priceInputs = document.querySelectorAll('input[name="price"]')
+let brandFilter = document.querySelectorAll('.brand-filter')
+let clearAllBtn= document.querySelector('.clear-all-btn')
+categoryFilter.forEach(checkbox=>{
+    checkbox.addEventListener('click',()=>{
+        filters.categories = [...categoryFilter].filter(cb=>cb.checked).map(cb=>cb.value)
+        applyFilters();
+    })
+})
+brandFilter.forEach(checkbox=>{
+    checkbox.addEventListener('click',()=>{
+        filters.categories = [...brandFilter].filter(cb=>cb.checked).map(cb=>cb.value)
+        applyFilters();
+    })
+})
+priceInputs.forEach(radio=>{
+    radio.addEventListener('click',()=>{
+        filters.price = radio.value.trim()
+        applyFilters();
+    })
+})
+clearAllBtn.addEventListener('click',()=>{
+    [...categoryFilter, ...brandFilter].forEach(e=>e.checked=false)
+    priceInputs.forEach(e=>e.checked=false)
+    filters ={price: null, categories: [], brands:[]}
+    renderProducts(allProducts)
+})
+function applyFilters(){
+    let filtered = [...allProducts]
+    if(filters.categories.length){
+        filtered=filtered.filter(e=>filters.categories.includes(e.category))
+    }
+     if(filters.brands.length){
+        filtered=filtered.filter(e=>filters.brands.includes(e.brand))
+    }
+    if(filters.price){
+        const range = filters.price.split('-').map(Number);
+        if(range.length==2){
+            filtered = filtered.filter(e=>e.price>=range[0]&&e.price<=range[1])
+
+        }
+        else if(filters.price.includes('+')){
+            const min = parseFloat(filters.price);
+            filtered = filtered.filter(e=>parseFloat(e.price)>=min)
+        }
+    }
+    renderProducts(filtered)
+}

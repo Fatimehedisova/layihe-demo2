@@ -2,7 +2,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const favoriteList = document.getElementById('favorite-list');
     let favorites = JSON.parse(localStorage.getItem('favorites')) || [];
     if (favorites.length === 0) {
-        favoriteList.innerHTML = "<p>Heç bir favorit məhsul yoxdur.</p>";
+        favoriteList.innerHTML = "<p class='favorite-text'>There is no favorite product.</p>";
         return;
     }
     favorites.forEach(products => {

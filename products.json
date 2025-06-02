@@ -7,7 +7,8 @@
         "price": 159.99,
         "discountPrice": 727.22,
         "discount": -22,
-        "category": "keyboard"
+        "category": "Keyboard",
+        "brand" : "logitech"
     },
     {
         "id": 2,
@@ -17,7 +18,8 @@
         "price": 149.99,
         "discountPrice": 833.27,
         "discount": -18,
-        "category": "mouse"
+        "category": "Mouse",
+        "brand":"logitech"
     },
     {
         "id": 3,
@@ -28,6 +30,8 @@
         "discountPrice": 1399.95,
         "discount": -20,
         "category": "headphones"
+        ,
+        "brand":"logitech"
     },
     {
         "id": 4,
@@ -37,48 +41,55 @@
         "price": 1959.99,
         "discountPrice": 5599.97,
         "discount": -35,
-        "category": "computer"
+        "category": "computer",
+        "brand":"logitech"
     },
     {
         "id": 5,
         "name": "G915 X LIGHTSPEED",
         "image": "https://dlcdnwebimgs.asus.com/gain/1C0169CE-E76F-424B-B02E-D3C7F869DA3F/w717/h525",
-        "price": 229,
-        "category": "keyboard"
+        "price": 729,
+        "category": "keyboard",
+        "brand":"logitech"
     },
     {
         "id": 6,
         "name": "Rog falcata",
         "image": "https://dlcdnwebimgs.asus.com/gain/BB5CFB46-150B-468C-AAD4-A16811BDA7E8/w717/h525",
         "price": 1959.99,
-        "category": "keyboard"
+        "category": "keyboard",
+        "brand":"logitech"
     },
     {
         "id": 7,
         "name": "Rog falcata",
         "image": "https://nov-gearnix.myshopify.com/cdn/shop/files/1_cff44ad4-f3ea-49de-9c96-10bfbb92cc73_900x.png?v=1722678143",
         "price": 1959.99,
-        "category": "keyboard"
+        "category": "keyboard",
+        "brand":"logitech"
     },
     {
         "id": 8,
         "name": "Rog falcata",
         "image": "https://nov-gearnix.myshopify.com/cdn/shop/files/1_cff44ad4-f3ea-49de-9c96-10bfbb92cc73_900x.png?v=1722678143",
         "price": 1959.99,
-        "category": "keyboard"
+        "category": "keyboard",
+        "brand":"logitech"
     },
     {
         "id": 9,
         "name": "Rog falcata",
         "image": "https://nov-gearnix.myshopify.com/cdn/shop/files/1_cff44ad4-f3ea-49de-9c96-10bfbb92cc73_900x.png?v=1722678143",
         "price": 1959.99,
-        "category": "keyboard"
+        "category": "keyboard",
+        "brand":"logitech"
     },
     {
         "id": 10,
         "name": "Rog falcata",
         "image": "https://nov-gearnix.myshopify.com/cdn/shop/files/1_cff44ad4-f3ea-49de-9c96-10bfbb92cc73_900x.png?v=1722678143",
         "price": 1959.99,
-        "category": "keyboard"
+        "category": "keyboard",
+        "brand":"logitech"
     }
 ]
