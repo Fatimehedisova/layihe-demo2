@@ -555,7 +555,7 @@ ul i {
     }
 }
 
-@media (max-width: 600px) {
+@media (max-width: 1000px) {
     .last-part {
         grid-template-columns: 1fr;
         padding: 40px 20px;
@@ -575,5 +575,8 @@ ul i {
     .icon-text h3 {
         margin-left: 0;
         margin-top: 10px;
+    }
+    .nav-item{
+        gap:50px
     }
 }

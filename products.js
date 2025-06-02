@@ -42,10 +42,15 @@ function renderProducts(products) {
         let productGrid = document.createElement('div')
         productGrid.classList.add('productGrid');
         productGrid.innerHTML = `
+        <div class='product-img'>
             <img src="${product.image}" alt="${product.name}">
+            </div>
             <div class="product-name">${product.name}</div>
             <div class="products-price">${product.price}</div>
+            <div class='add-icons'>
+            <div class='basket-btn' data-id='${product.id}'><i class="fa-solid fa-basket-shopping" style="color: #000000;"></i></div>
             <div class='favorite-btn' data-id='${product.id}'><i class="fa-regular fa-heart" style="color: #000000;"></i></div>
+            </div>
             `
         productsProduct.appendChild(productGrid)
     });
@@ -55,6 +60,12 @@ function renderProducts(products) {
             addToFavorites(productId)
         });
     });
+   document.querySelectorAll('.basket-btn').forEach(btn=>{
+    btn.addEventListener('click',()=>{
+        let productId = btn.getAttribute('data-id')
+        addToBasket(productId)
+    })
+   })
 }
 function addToFavorites(id) {
     let favorites = JSON.parse(localStorage.getItem('favorites')) || [];
@@ -77,6 +88,25 @@ function addToFavorites(id) {
 
         })
     }
+}
+function addToBasket(id){
+    let basket = JSON.parse(localStorage.getItem('basket')) || [];
+    let existingItem = basket.find(item=>item.id==id)
+    if(existingItem){
+        existingItem.quantity += 1;
+
+    }
+    else{
+        let product = allProducts.find(p=>p.id == id)
+        if(product){
+            basket.push({...product,quantity: 1});
+        }
+    }
+    localStorage.setItem('basket',JSON.stringify(basket))
+    Swal.fire({
+        title: 'Added successfully!',
+        icon: 'success'
+    })
 }
 let sortSelect = document.querySelector(".sort-dropdown select");
 if (sortSelect) {
@@ -149,7 +179,7 @@ currencyIconContainer.addEventListener("click", () => {
         currencyFlag = false;
     }
 })
-let filters  = {
+let filters = {
     price: null,
     categories: [],
     brands: []
@@ -157,41 +187,41 @@ let filters  = {
 let categoryFilter = document.querySelectorAll('.category-filter')
 let priceInputs = document.querySelectorAll('input[name="price"]')
 let brandFilter = document.querySelectorAll('.brand-filter')
-let clearAllBtn= document.querySelector('.clear-all-btn')
-categoryFilter.forEach(checkbox=>{
-    checkbox.addEventListener('click',()=>{
-        filters.categories = [...categoryFilter].filter(cb=>cb.checked).map(cb=>cb.value)
+let clearAllBtn = document.querySelector('.clear-all-btn')
+categoryFilter.forEach(checkbox => {
+    checkbox.addEventListener('click', () => {
+        filters.categories = [...categoryFilter].filter(cb => cb.checked).map(cb => cb.value)
         applyFilters();
     })
 })
-brandFilter.forEach(checkbox=>{
-    checkbox.addEventListener('click',()=>{
-        filters.brands = [...brandFilter].filter(cb=>cb.checked).map(cb=>cb.value)
+brandFilter.forEach(checkbox => {
+    checkbox.addEventListener('click', () => {
+        filters.brands = [...brandFilter].filter(cb => cb.checked).map(cb => cb.value)
         applyFilters();
     })
 })
-priceInputs.forEach(radio=>{
-    radio.addEventListener('click',()=>{
+priceInputs.forEach(radio => {
+    radio.addEventListener('click', () => {
         filters.price = radio.value.trim()
         applyFilters();
     })
 })
-clearAllBtn.addEventListener('click',()=>{
-    [...categoryFilter, ...brandFilter].forEach(e=>e.checked=false)
-    priceInputs.forEach(e=>e.checked=false)
-    filters ={price: null, categories: [], brands:[]}
+clearAllBtn.addEventListener('click', () => {
+    [...categoryFilter, ...brandFilter].forEach(e => e.checked = false)
+    priceInputs.forEach(e => e.checked = false)
+    filters = { price: null, categories: [], brands: [] }
     renderProducts(allProducts)
 })
-function applyFilters(){
+function applyFilters() {
     let filtered = [...allProducts]
-    if(filters.categories.length){
-        filtered=filtered.filter(e=>filters.categories.includes(e.category.toLowerCase()))
+    if (filters.categories.length) {
+        filtered = filtered.filter(e => filters.categories.includes(e.category.toLowerCase()))
     }
-     if(filters.brands.length){
-        filtered=filtered.filter(e=>filters.brands.includes(e.brand.toLowerCase()))
+    if (filters.brands.length) {
+        filtered = filtered.filter(e => filters.brands.includes(e.brand.toLowerCase()))
     }
-    if(filters.price){
-          const priceStr = filters.price.trim();
+    if (filters.price) {
+        const priceStr = filters.price.trim();
         if (priceStr.includes('+')) {
             const min = parseFloat(priceStr.replace('+', ''));
             filtered = filtered.filter(e => e.price >= min);

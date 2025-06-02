@@ -4,15 +4,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./styles/product-collection.css">
+    <link rel="stylesheet" href="./styles/basket.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+        integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
         rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
-        integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <title>Document</title>
+
+    <title>TurboGamer</title>
 </head>
 
 <body>
@@ -21,13 +22,13 @@
             <div class="top-part-left">
                 <img src="./homeimg/turbogame.png" alt="img">
                 <div class="search">
-                    <input type="text" placeholder="search">
+                    <input type="text" id="search-input" placeholder="search">
                     <i class="fa-solid fa-magnifying-glass" style="color: #000000;"></i>
                 </div>
             </div>
             <div class="icons">
-                <a href="./favorites.html"><i class="fa-regular fa-heart" style="color: #ffffff;"></i></a>
-                <a href="./basket.html"><i class="fa-solid fa-basket-shopping" style="color: #ffffff;"></i></a>
+                <a href="./favorites.html"> <i class="fa-regular fa-heart" style="color: #ffffff;"></i></a>
+                <i class="fa-solid fa-basket-shopping" style="color: #ffffff;"></i>
             </div>
         </div>
         <div class="trapezoid-container">
@@ -103,34 +104,42 @@
             </li>
         </ul>
     </nav>
-    <main>
-        <section>
-            <div class="collection-container">
-                <div class="collection-top">
-                    <div class="collection-sort-dropdown">
-                       <select id="sortOptions">
-                            <option value="featured">Sort by Featured</option>
-                            <option value="az">Alphabetically (A-Z)</option>
-                            <option value="za">Alphabetically (Z-A)</option>
-                            <option value="low-high">Price (low to high)</option>
-                            <option value="high-low">Price (high to low)</option>
-                        </select>
-                    </div>
-                    <div class="collection-grid-change">
-                        <i class="fa-solid fa-table-cells grid-c1" style="color: #000000;"></i>
-                        <i class="fa-solid fa-border-all grid-c2" style="color: #000000;"></i>
-                        <i class="fa-solid fa-list-ul grid-c3" style="color: #000000;"></i>
-                    </div>
+    <main class="basket-main">
+        <div class="basket">
+            <div class="basket-container">
+                <h1>My Basket</h1>
+                <div class="basket-products">
+                    <!-- <div class="basket-items">
+                        <div class="basket-left-side">
+                            <button class="delete-basket">
+                                <i class="fa-solid fa-ban" style="color: #000000;"></i>
+                            </button>
+                            <div class="basket-img">
+                                <img src="https://resource.logitechg.com/w_692,c_lpad,ar_4:3,q_auto,f_auto,dpr_2.0/d_transparent.gif/content/dam/gaming/en/products/pro-x60-wireless-keyboard/gallery/pro-x-60-keyboard-black-gallery-1-us.png?v=1"
+                                    alt="" class="basket-product-img">
+                            </div>
 
+                            <div class="basket-about">
+                                <h5 class="basket-name">Arctic Monkeys</h5>
+                                <div class="basket-bottom">
+                                    <div class="quantity">
+                                        <button class="decrease">-</button>
+                                        <span class="basket-price">505</span>
+                                        <button class="increase">+</button>
+                                    </div>
+                                    <div class="basket-total-price"><span>Total</span></div>
+
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="basket-right-side">
+                            <button class="buyNowBtn">Buy Now</button>
+                        </div>
+                    </div> -->
                 </div>
-                <div class="collection-main">
-                    <div class="collection-main-grid" id="collection-categories-product">
-                        
-                    </div>
-                </div>
+
             </div>
-
-        </section>
     </main>
     <footer>
 
@@ -176,11 +185,11 @@
                     <h3>my account</h3>
                     <div class="last-part-p">
                         <p>store location</p>
-                    <p>order history</p>
-                    <p>wish list</p>
-                    <p>gift cards</p>
+                        <p>order history</p>
+                        <p>wish list</p>
+                        <p>gift cards</p>
                     </div>
-                    
+
                 </div>
             </div>
 
@@ -188,8 +197,7 @@
         </div>
 
     </footer>
-    <script src="./products-collection.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="./basket.js"></script>
 </body>
 
 </html>
