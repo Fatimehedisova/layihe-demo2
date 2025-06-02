@@ -2,7 +2,7 @@ let allProducts = []
 fetch('./products.json')
     .then(res => res.json())
     .then(data => {
-        allProducts = data.slice(1, 10);
+        allProducts = data;
         renderProducts(allProducts);
     })
 function sortAndRender(option) {
@@ -166,7 +166,7 @@ categoryFilter.forEach(checkbox=>{
 })
 brandFilter.forEach(checkbox=>{
     checkbox.addEventListener('click',()=>{
-        filters.categories = [...brandFilter].filter(cb=>cb.checked).map(cb=>cb.value)
+        filters.brands = [...brandFilter].filter(cb=>cb.checked).map(cb=>cb.value)
         applyFilters();
     })
 })
@@ -185,21 +185,22 @@ clearAllBtn.addEventListener('click',()=>{
 function applyFilters(){
     let filtered = [...allProducts]
     if(filters.categories.length){
-        filtered=filtered.filter(e=>filters.categories.includes(e.category))
+        filtered=filtered.filter(e=>filters.categories.includes(e.category.toLowerCase()))
     }
      if(filters.brands.length){
-        filtered=filtered.filter(e=>filters.brands.includes(e.brand))
+        filtered=filtered.filter(e=>filters.brands.includes(e.brand.toLowerCase()))
     }
     if(filters.price){
-        const range = filters.price.split('-').map(Number);
-        if(range.length==2){
-            filtered = filtered.filter(e=>e.price>=range[0]&&e.price<=range[1])
-
-        }
-        else if(filters.price.includes('+')){
-            const min = parseFloat(filters.price);
-            filtered = filtered.filter(e=>parseFloat(e.price)>=min)
+          const priceStr = filters.price.trim();
+        if (priceStr.includes('+')) {
+            const min = parseFloat(priceStr.replace('+', ''));
+            filtered = filtered.filter(e => e.price >= min);
+        } else if (priceStr.includes('-')) {
+            const [min, max] = priceStr.split('-').map(Number);
+            filtered = filtered.filter(e => e.price >= min && e.price <= max);
         }
     }
+    console.log("Aktiv qiymət filtiri:", filters.price);
+    console.log("Uyğun məhsullar:", filtered.map(e => e.name + ' (' + e.price + ')'));
     renderProducts(filtered)
 }
