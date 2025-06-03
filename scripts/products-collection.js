@@ -65,9 +65,13 @@ function renderCollectionProducts(products) {
         let collectionProductGrid = document.createElement('div');
         collectionProductGrid.classList.add('product-card');
         collectionProductGrid.innerHTML = `
+        <div class='product-cm-img'>
       <img src="${product.image}" alt="${product.name}">
+      </div>
+      <div class='cm-product-title'>
       <div class="cm-product-name">${product.name}</div> 
       <div class="cm-products-price">${convertPrice(product.price)}</div>
+      </div>
       <div class='cm-add-icons'>
         <div class='basket-btn' data-id='${product.id}'><i class="fa-solid fa-basket-shopping" style="color: #000000;"></i></div>
         <div class='cm-add-icon'>
@@ -87,8 +91,9 @@ function renderCollectionProducts(products) {
             localStorage.setItem('selectedProduct', JSON.stringify(product));
             window.location.href = './detail.html';
         });
-        collectionProduct.appendChild(collectionProductGrid);
+        collectionProducts.appendChild(collectionProductGrid);
     });
+
     document.querySelectorAll('.favorite-btn').forEach(btn => {
         btn.addEventListener('click', () => {
             let productId = btn.getAttribute('data-id');

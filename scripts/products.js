@@ -111,29 +111,29 @@ function renderProducts(products) {
             addToBasket(productId)
         })
     })
-   document.querySelectorAll('.compare-btn').forEach(btn => {
-    btn.addEventListener('click', () => {
-        let productId = btn.getAttribute('data-id');
-        let product = allProducts.find(p => p.id == productId);
-        if (!product) return;
-        let compareList = JSON.parse(localStorage.getItem('compareProducts')) || [];
-        let alreadyExists = compareList.some(item => item.id == productId);
-        if (!alreadyExists) {
-            compareList.push(product);
-            localStorage.setItem('compareProducts', JSON.stringify(compareList));
+    document.querySelectorAll('.compare-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+            let productId = btn.getAttribute('data-id');
+            let product = allProducts.find(p => p.id == productId);
+            if (!product) return;
+            let compareList = JSON.parse(localStorage.getItem('compareProducts')) || [];
+            let alreadyExists = compareList.some(item => item.id == productId);
+            if (!alreadyExists) {
+                compareList.push(product);
+                localStorage.setItem('compareProducts', JSON.stringify(compareList));
 
-            Swal.fire({
-                title: 'Added to compare!',
-                icon: 'success'
-            });
-        } else {
-            Swal.fire({
-                title: 'Already in compare list!',
-                icon: 'info'
-            });
-        }
+                Swal.fire({
+                    title: 'Added to compare!',
+                    icon: 'success'
+                });
+            } else {
+                Swal.fire({
+                    title: 'Already in compare list!',
+                    icon: 'info'
+                });
+            }
+        });
     });
-});
 
 }
 function addToFavorites(id) {
@@ -191,30 +191,34 @@ let products = document.querySelector('.products')
 let gridProduct = document.querySelector('.grid-change')
 let grid2 = gridProduct.querySelector('.grid-2')
 let grid1 = gridProduct.querySelector('.grid-1')
+let grid3 = gridProduct.querySelector('.grid-3')
 grid2.addEventListener('click', () => {
     products.style.gridTemplateColumns = 'repeat(2,1fr)'
 })
 grid1.addEventListener('click', () => {
     products.style.gridTemplateColumns = 'repeat(3,1fr)'
 })
+grid3.addEventListener('click', () => {
+    products.style.gridTemplateColumns = '1fr'
+})
 let moreBtn = document.querySelector('.more-btn')
 let moreCategories = [];
 moreBtn.addEventListener('click', () => {
     let categoriesRight = document.querySelector('.categories-right')
     if (moreBtn.textContent == 'See More +') {
-        for (let i = 0; i < 3; i++) {
-            let newCategories = document.createElement('div')
-            newCategories.className = 'categories-product-box more-category'
-            newCategories.innerHTML = `<a href ="#">Keyboard </a>`;
+        const moreItems = ['Computers', 'Chair'];
+        moreItems.forEach(item => {
+            let newCategories = document.createElement('div');
+            newCategories.className = 'categories-product-box more-category';
+            newCategories.innerHTML = `<a href="#">${item}</a>`;
             categoriesRight.insertBefore(newCategories, moreBtn.parentElement);
-            moreCategories.push(newCategories)
-        }
-        moreBtn.textContent = 'See Less -'
-    }
-    else {
-        moreCategories.forEach(box => box.remove())
+            moreCategories.push(newCategories);
+        });
+        moreBtn.textContent = 'See Less -';
+    } else {
+        moreCategories.forEach(box => box.remove());
         moreCategories = [];
-        moreBtn.textContent = 'See More +'
+        moreBtn.textContent = 'See More +';
     }
 })
 let dropMenu = document.querySelector(".dropdown-menu");
@@ -257,6 +261,8 @@ document.querySelectorAll('.dropdown-menu .currency-option').forEach(option => {
     option.addEventListener('click', () => {
         let currency = option.getAttribute('data-currency');
         localStorage.setItem('selectedCurrency', currency);
+        location.reload();
+
     });
 });
 let filters = {
@@ -295,10 +301,12 @@ clearAllBtn.addEventListener('click', () => {
 function applyFilters() {
     let filtered = [...allProducts]
     if (filters.categories.length) {
-        filtered = filtered.filter(e => filters.categories.includes(e.category.toLowerCase()))
+        const selectedCategories = filters.categories.map(c => c.toLowerCase());
+        filtered = filtered.filter(e => selectedCategories.includes(e.category.toLowerCase()));
     }
     if (filters.brands.length) {
-        filtered = filtered.filter(e => filters.brands.includes(e.brand.toLowerCase()))
+        let selectedBrands = filters.brands.map(b => b.toLowerCase());
+        filtered = filtered.filter(e => selectedBrands.includes(e.brand.toLowerCase()));
     }
     if (filters.price) {
         const priceStr = filters.price.trim();

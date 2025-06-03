@@ -169,25 +169,27 @@ ul i {
 }
 
 .product-card img{
-    display: block;
+    /* display: block; */
     width: 100%;
-    height: auto;
+    max-height: 300px !important;
     margin: 0 auto;
 }
+.product-cm-img{
+    max-height: 500px;
+}
 .cm-products-price, .cm-product-name{
-    text-align: center;
-    font-size: 2vw;
+    /* text-align: center; */
+    font-size: 1.3vw !important;
 }
 .product-card {
   border: 1px solid rgb(231, 230, 230);
   border-radius: 10px;
   padding: 10px;
 }
-
-.cm-product-name, .cm-products-price {
-  text-align: center;
-  font-size: 2vw;
+.cm-product-name{
+    margin-bottom: 10px;
 }
+
 .last-part {
     font-size: 20px;
     padding: 60px 20px;
