@@ -402,7 +402,7 @@ ul i {
     background-color: red;
     color: #fff;
     z-index: 2;
-    clip-path: polygon(100% 0%, 100% 100%, 50% 80%, 0% 100%, 0% 0%);
+   
 }
 
 .box-price {
