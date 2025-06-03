@@ -52,15 +52,25 @@ function renderProducts(products) {
             <div class='favorite-btn' data-id='${product.id}'><i class="fa-regular fa-heart" style="color: #000000;"></i></div>
             </div>
             `
-            productGrid.addEventListener('click',()=>{
-                localStorage.setItem('selectedProduct', JSON.stringify(product))
-                window.location.href = './detail.html'
-            })
+        productGrid.addEventListener('click', (e) => {
+            const clickedClass = e.target.className;
+
+            if (
+                clickedClass.includes('basket') ||
+                clickedClass.includes('heart')
+            ) {
+                return;
+            }
+
+            localStorage.setItem('selectedProduct', JSON.stringify(product));
+            window.location.href = './detail.html';
+        });
         productsProduct.appendChild(productGrid)
     });
     document.querySelectorAll('.favorite-btn').forEach(btn => {
         btn.addEventListener('click', () => {
             let productId = btn.getAttribute('data-id')
+
             addToFavorites(productId)
         });
     });
@@ -84,6 +94,10 @@ function addToFavorites(id) {
                 icon: 'success'
 
             });
+             let btn = document.querySelector(`.favorite-btn[data-id="${id}"] i`);
+            if (btn) {
+                btn.style.color = 'red';
+            }
         }
     } else {
         Swal.fire({
@@ -243,7 +257,7 @@ let baseCurrency = {
     AZN: "₼",
     RUB: "₽"
 }
-function getSelectedCurrency(){
+function getSelectedCurrency() {
     return localStorage.getItem('selectedCurrency') || 'USD';
 }
 function getExchangeRates() {

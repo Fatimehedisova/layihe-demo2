@@ -29,18 +29,23 @@ document.addEventListener('DOMContentLoaded', () => {
                     </div>
             
         `
+        card.querySelector('.product-view').addEventListener('click', () => {
+            localStorage.setItem('selectedProduct', JSON.stringify(products));
+            window.location.href = './detail.html';
+        });
+
         favoriteList.appendChild(card)
     })
-    document.querySelectorAll('.delete-favorite').forEach(btn=>{
-        btn.addEventListener('click',()=>{
+    document.querySelectorAll('.delete-favorite').forEach(btn => {
+        btn.addEventListener('click', () => {
             let id = btn.getAttribute('data-id');
             removeFromFavorites(id);
             location.reload()
         })
     })
 })
-function removeFromFavorites(id){
+function removeFromFavorites(id) {
     let favorites = JSON.parse(localStorage.getItem('favorites')) || [];
-    favorites = favorites.filter(products=>products.id != id)
+    favorites = favorites.filter(products => products.id != id)
     localStorage.setItem('favorites', JSON.stringify(favorites))
 }

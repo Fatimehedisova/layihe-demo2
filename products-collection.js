@@ -26,17 +26,27 @@ function renderCollectionProducts(products) {
         collectionProductGrid.classList.add('product-card');
         collectionProductGrid.innerHTML = `
         <img src="${product.image}" alt="${product.name}">
-        <div class="cm-product-name">${product.name}</div>
+        <div class="cm-product-name">${product.name}</div> 
         <div class="cm-products-price">${product.price}</div>
         <div class='cm-add-icons'>
             <div class='basket-btn' data-id='${product.id}'><i class="fa-solid fa-basket-shopping" style="color: #000000;"></i></div>
             <div class='favorite-btn' data-id='${product.id}'><i class="fa-regular fa-heart" style="color: #000000;"></i></div>
             </div>
         `
-         collectionProductGrid.addEventListener('click',()=>{
-                localStorage.setItem('selectedProduct', JSON.stringify(product))
-                window.location.href = './detail.html'
-            })
+           collectionProductGrid.addEventListener('click', (e) => {
+            const clickedClass = e.target.className;
+
+            if (
+                clickedClass.includes('basket') ||
+                clickedClass.includes('heart')
+            ) {
+                return;
+            }
+
+            localStorage.setItem('selectedProduct', JSON.stringify(product));
+            window.location.href = './detail.html';
+        });
+
         collectionProduct.appendChild(collectionProductGrid)
     })
     document.querySelectorAll('.favorite-btn').forEach(btn => {
@@ -103,6 +113,7 @@ function addToFavorites(id) {
                 icon: 'success'
 
             });
+            
         }
     } else {
         Swal.fire({

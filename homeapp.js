@@ -10,7 +10,12 @@
       }
     }
   });
-
+document.querySelectorAll('.url-btn').forEach(btn => {
+    btn.addEventListener('click', function () {
+        const category = this.getAttribute('data-category');
+        window.location.href = './product-collection.html?category=' + category;
+    });
+});
 
 fetch("./products.json")
     .then(res => res.json())
@@ -151,6 +156,6 @@ document.querySelectorAll(".dot").forEach((dot, index) => {
 });
 document.querySelector(".prev").addEventListener("click", () => plusSlides(-1));
 document.querySelector(".next").addEventListener("click", () => plusSlides(1));
-setInterval(() => {
-  plusSlides(1);
-}, 5000);
+// setInterval(() => {
+//   plusSlides(1);
+// }, 5000);
