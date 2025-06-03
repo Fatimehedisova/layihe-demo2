@@ -69,17 +69,21 @@ header {
 }
 
 .navbar {
+    display: flex;
+    /* align-items: center; */
+    justify-content: center;
+    gap: 50px;
     padding: 20px;
     background-color: #D9D9D9;
     position: sticky;
     top: 0;
-    z-index: 1000;
+    z-index: 3;
 }
 
 .nav-item {
     display: flex;
     list-style: none;
-    font-size: 20px;
+    font-size: 1.5vw;
     gap: 90px;
     justify-content: center;
 
@@ -215,22 +219,20 @@ ul i {
 .hero-text-1,
 .hero-text-2,
 .hero-text-3 {
+    width: 30vw;
     text-align: start;
     position: absolute;
     top: 50%;
-    left: 77%;
+    left: 85%;   
     transform: translate(-50%, -50%);
-    color: black;
+    color: rgb(255, 255, 255);
 }
 
-.hero-text-2,
-.hero-text-3 {
-    color: white;
-    width: 30vw;
 
-}
 
-.hero-text-3 {
+
+
+.hero-text-3 , .hero-text-1{
     left: 30%;
 }
 
@@ -241,7 +243,7 @@ ul i {
     outline: 0;
     display: inline-block;
     padding: 10px 25px;
-    color: black;
+    color: rgb(0, 0, 0);
     background-color: #ddd;
     text-align: center;
     cursor: pointer;
@@ -354,7 +356,7 @@ ul i {
 }
 
 .main-second-boxes {
-    width: 80vw;
+    width: 90vw;
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 20px;
@@ -382,6 +384,7 @@ ul i {
     height: 40px;
     /* font-size: 1.1vw; */
     font-weight: 500;
+    font-size: 1.2vw;
 }
 
 .percent {
@@ -416,7 +419,10 @@ ul i {
 .prices {
     margin-bottom: 10px;
 }
-
+.url-btn a{
+    text-decoration: none;
+    color: black;
+}
 .sale {
     margin: 100px auto;
     width: 90vw;
@@ -459,11 +465,10 @@ ul i {
     gap: 100px;
     padding: 50px;
 }
-
+ /* footer */
 .last-part {
-    font-size: 20px;
+    font-size: 1.3vw;
     padding: 60px 20px;
-
     background-color: #555;
     color: white;
 
@@ -531,21 +536,25 @@ ul i {
     font-size: 30px;
 }
 
-@media (max-width: 1100px) {
+@media  screen and (min-width: 900px ) and ( max-width: 1100px){
     .last-part-boxes {
         column-gap: 60px;
         row-gap: 40px;
         grid-template-columns: repeat(2, 1fr);
-        padding: 50px 30px;
+        /* padding: 50px 30px; */
     }
     .hero-box h1{
-        font-size: 4.5vw;
+        font-size: 4vw;
+        left: 50%;
+    }
+    .last-part{
+        font-size: 1.6vw;
     }
 
     .last-part-p {
         display: grid;
         grid-template-columns: repeat(2, 1fr);
-        gap: 20px;
+        gap: 10px;
     }
     .main-boxes{
         grid-template-columns: 1fr;
@@ -555,14 +564,50 @@ ul i {
     }
 }
 
-@media (max-width: 1000px) {
-    .last-part {
-        grid-template-columns: 1fr;
-        padding: 40px 20px;
-        font-size: 18px;
+@media screen and (min-width: 800px )and (max-width: 900px) {
+   
+    .last-part-p {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
     }
+    .main-boxes{
+        grid-template-columns: 1fr;
+    }
+    .hero-box h1{
+        font-size: 4vw;
+        left: 50%;
+    }
+    
+.hero-text-1,
+.hero-text-2,
+.hero-text-3 {
+    top: 50%;
+    left: 60%;   
+    
+}
+.hero-text-2,
+.hero-text-1,
+.hero-text-3 {
+    color: white;
+    width: 60vw;
 
+}
 
+.hero-text-1 h1,
+.hero-text-2 h1,
+.hero-text-3 h1 {
+    font-size: 5vw;
+ 
+}
+.hero-text-1{
+    left:  50%;
+}
+.percent{
+    width: 48px;
+    height: 48px;
+    font-size: 1.3vw;
+}
     .media {
         justify-content: flex-start;
     }
@@ -577,6 +622,72 @@ ul i {
         margin-top: 10px;
     }
     .nav-item{
-        gap:50px
+        gap:40px;
+    }
+}
+@media screen and (min-width: 600px)  and (max-width:800px){
+    .last-part-p {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+    }
+    .main-boxes{
+        grid-template-columns: 1fr;
+    }
+    .hero-box h1{
+        font-size: 4vw;
+        left: 50%;
+    }
+    
+.hero-text-1,
+.hero-text-2,
+.hero-text-3 {
+    top: 50%;
+    left: 60%;   
+    
+}
+.hero-text-2,
+.hero-text-1,
+.hero-text-3 {
+    color: white;
+    width: 60vw;
+
+}
+
+.hero-text-1 h1,
+.hero-text-2 h1,
+.hero-text-3 h1 {
+    font-size: 5vw;
+ 
+}
+.hero-text-1{
+    left:  50%;
+}
+.percent{
+    width: 48px;
+    height: 48px;
+}
+    .media {
+        justify-content: flex-start;
+    }
+
+    .icon-text {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .icon-text h3 {
+        margin-left: 0;
+        margin-top: 10px;
+    }
+    .nav-item{
+        gap:40px;
+    }
+    .about-us{
+        display: grid;
+        grid-template-columns: repeat(2,1fr);
+    }
+    .box-text{
+        font-size: 1.5vw;
     }
 }

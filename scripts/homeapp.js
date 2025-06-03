@@ -43,7 +43,7 @@ fetch("./products.json")
             box.className = "box";
             box.dataset.price = product.price;
             box.innerHTML = `
-            <div class="percent">${product.discount}%</div>
+           
             <img class="product-img" src="${product.image}" alt="${product.name}">
             <p class="box-text">${product.name}</p>
             <div class="prices">

@@ -272,3 +272,154 @@ ul i {
     margin: 70px auto 10px;
     font-size: 50px;
 }
+@media  screen and (min-width: 900px ) and ( max-width: 1100px){
+    .last-part-boxes {
+        column-gap: 60px;
+        row-gap: 40px;
+        grid-template-columns: repeat(2, 1fr);
+        /* padding: 50px 30px; */
+    }
+    .hero-box h1{
+        font-size: 4vw;
+        left: 50%;
+    }
+    .last-part{
+        font-size: 1.6vw;
+    }
+
+    .last-part-p {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+    }
+    .main-boxes{
+        grid-template-columns: 1fr;
+    }
+    .nav-item{
+        gap: 70px;
+    }
+}
+
+@media screen and (min-width: 800px )and (max-width: 900px) {
+   
+    .last-part-p {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+    }
+    .main-boxes{
+        grid-template-columns: 1fr;
+    }
+    .hero-box h1{
+        font-size: 4vw;
+        left: 50%;
+    }
+    
+.hero-text-1,
+.hero-text-2,
+.hero-text-3 {
+    top: 50%;
+    left: 60%;   
+    
+}
+.hero-text-2,
+.hero-text-1,
+.hero-text-3 {
+    color: white;
+    width: 60vw;
+
+}
+
+.hero-text-1 h1,
+.hero-text-2 h1,
+.hero-text-3 h1 {
+    font-size: 5vw;
+ 
+}
+.hero-text-1{
+    left:  50%;
+}
+.percent{
+    width: 48px;
+    height: 48px;
+}
+    .media {
+        justify-content: flex-start;
+    }
+
+    .icon-text {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .icon-text h3 {
+        margin-left: 0;
+        margin-top: 10px;
+    }
+    .nav-item{
+        gap:40px;
+    }
+}
+@media screen and (min-width: 600px)  and (max-width:800px){
+    .last-part-p {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+    }
+    .main-boxes{
+        grid-template-columns: 1fr;
+    }
+    .hero-box h1{
+        font-size: 4vw;
+        left: 50%;
+    }
+    
+.hero-text-1,
+.hero-text-2,
+.hero-text-3 {
+    top: 50%;
+    left: 60%;   
+    
+}
+.hero-text-2,
+.hero-text-1,
+.hero-text-3 {
+    color: white;
+    width: 60vw;
+
+}
+
+.hero-text-1 h1,
+.hero-text-2 h1,
+.hero-text-3 h1 {
+    font-size: 5vw;
+ 
+}
+.hero-text-1{
+    left:  50%;
+}
+.percent{
+    width: 48px;
+    height: 48px;
+}
+    .media {
+        justify-content: flex-start;
+    }
+
+    .icon-text {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .icon-text h3 {
+        margin-left: 0;
+        margin-top: 10px;
+    }
+    .nav-item{
+        gap:40px;
+    }
+    .about-us{
+        display: grid;
+        grid-template-columns: repeat(2,1fr);
+    }
+}
