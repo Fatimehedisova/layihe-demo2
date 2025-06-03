@@ -94,7 +94,7 @@ function addToFavorites(id) {
                 icon: 'success'
 
             });
-             let btn = document.querySelector(`.favorite-btn[data-id="${id}"] i`);
+            let btn = document.querySelector(`.favorite-btn[data-id="${id}"] i`);
             if (btn) {
                 btn.style.color = 'red';
             }
@@ -269,3 +269,18 @@ function convertPrice(priceUSD) {
     const rates = getExchangeRates();
     return (priceUSD * rates[currency]).toFixed(2);
 }
+const searchInput = document.getElementById('search-input');
+const searchBtn = document.querySelector('.search-btn');
+
+searchBtn.addEventListener('click', () => {
+    const query = searchInput.value.trim();
+    if (query.length > 0) {
+        localStorage.setItem('searchQuery', query);
+        window.location.href = './product-collection.html';
+    }
+});
+searchInput.addEventListener('keydown', (e) => {
+    if (e.key === 'Enter') {
+        searchBtn.click();
+    }
+});
