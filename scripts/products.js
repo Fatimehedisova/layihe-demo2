@@ -1,3 +1,27 @@
+
+
+let baseCurrencySimvol = {
+    USD: "$",
+    AZN: "₼",
+    RUB: "₽"
+};
+
+function convertPrice(priceUSD) {
+    let selectedCurrency = localStorage.getItem('selectedCurrency') || 'USD';
+    let exchangeRates = JSON.parse(localStorage.getItem('exchangeRates')) || {};
+    let symbol = baseCurrencySimvol[selectedCurrency] || "$";
+    let rate = exchangeRates[selectedCurrency] || 1;
+    return `${(priceUSD * rate).toFixed(2)}${symbol}`;
+}
+
+if (!localStorage.getItem('exchangeRates')) {
+    fetch("https://v6.exchangerate-api.com/v6/e72f285414f4085527b4db02/latest/USD")
+        .then(res => res.json())
+        .then(data => {
+            localStorage.setItem('exchangeRates', JSON.stringify(data.conversion_rates));
+            location.reload();
+        });
+}
 let allProducts = []
 fetch('./products.json')
     .then(res => res.json())
@@ -38,6 +62,7 @@ function renderProducts(products) {
         productsProduct.appendChild(noProduct);
         return;
     }
+
     products.map(product => {
         let productGrid = document.createElement('div')
         productGrid.classList.add('productGrid');
@@ -46,18 +71,24 @@ function renderProducts(products) {
             <img src="${product.image}" alt="${product.name}">
             </div>
             <div class="product-name">${product.name}</div>
-            <div class="products-price">${product.price}</div>
+            <div class="products-price">${convertPrice(product.price)}</div>
             <div class='add-icons'>
+            <div class="add-icon">
             <div class='basket-btn' data-id='${product.id}'><i class="fa-solid fa-basket-shopping" style="color: #000000;"></i></div>
-            <div class='favorite-btn' data-id='${product.id}'><i class="fa-regular fa-heart" style="color: #000000;"></i></div>
+            <div class='compare-btn' data-id=${product.id}><i class="fa-solid fa-code-compare" style="color: #000000;"></i></div>
             </div>
+            
+           
+            <div class='favorite-btn' data-id='${product.id}'><i class="fa-regular fa-heart" style="color: #000000;"></i></div>
+ </div>
             `
         productGrid.addEventListener('click', (e) => {
             const clickedClass = e.target.className;
 
             if (
                 clickedClass.includes('basket') ||
-                clickedClass.includes('heart')
+                clickedClass.includes('heart') ||
+                clickedClass.includes('compare')
             ) {
                 return;
             }
@@ -80,6 +111,30 @@ function renderProducts(products) {
             addToBasket(productId)
         })
     })
+   document.querySelectorAll('.compare-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+        let productId = btn.getAttribute('data-id');
+        let product = allProducts.find(p => p.id == productId);
+        if (!product) return;
+        let compareList = JSON.parse(localStorage.getItem('compareProducts')) || [];
+        let alreadyExists = compareList.some(item => item.id == productId);
+        if (!alreadyExists) {
+            compareList.push(product);
+            localStorage.setItem('compareProducts', JSON.stringify(compareList));
+
+            Swal.fire({
+                title: 'Added to compare!',
+                icon: 'success'
+            });
+        } else {
+            Swal.fire({
+                title: 'Already in compare list!',
+                icon: 'info'
+            });
+        }
+    });
+});
+
 }
 function addToFavorites(id) {
     let favorites = JSON.parse(localStorage.getItem('favorites')) || [];
@@ -165,6 +220,7 @@ moreBtn.addEventListener('click', () => {
 let dropMenu = document.querySelector(".dropdown-menu");
 let currencyIconContainer = document.querySelector(".currency-hover");
 let currencyIcon = currencyIconContainer.querySelector("i");
+
 let currencyFlag = false;
 let categoriesFlag = false;
 let categoriesMenu = document.querySelector('.categories-menu')
@@ -197,6 +253,12 @@ currencyIconContainer.addEventListener("click", () => {
         currencyFlag = false;
     }
 })
+document.querySelectorAll('.dropdown-menu .currency-option').forEach(option => {
+    option.addEventListener('click', () => {
+        let currency = option.getAttribute('data-currency');
+        localStorage.setItem('selectedCurrency', currency);
+    });
+});
 let filters = {
     price: null,
     categories: [],
@@ -252,23 +314,8 @@ function applyFilters() {
     console.log("Uyğun məhsullar:", filtered.map(e => e.name + ' (' + e.price + ')'));
     renderProducts(filtered)
 }
-let baseCurrency = {
-    USD: "$",
-    AZN: "₼",
-    RUB: "₽"
-}
-function getSelectedCurrency() {
-    return localStorage.getItem('selectedCurrency') || 'USD';
-}
-function getExchangeRates() {
-    return JSON.parse(localStorage.getItem('exchangeRates')) || { USD: 1, AZN: 1.7, RUB: 93 };
-}
 
-function convertPrice(priceUSD) {
-    const currency = getSelectedCurrency();
-    const rates = getExchangeRates();
-    return (priceUSD * rates[currency]).toFixed(2);
-}
+
 const searchInput = document.getElementById('search-input');
 const searchBtn = document.querySelector('.search-btn');
 

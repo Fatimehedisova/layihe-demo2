@@ -1,4 +1,12 @@
+    let selectedCurrency = localStorage.getItem('selectedCurrency') || 'USD';
+    let baseCurrency = JSON.parse(localStorage.getItem('exchangeRates')) || {};
+    let baseCurrencySimvol = {
+        USD: "$",
+        AZN: "₼",
+        RUB: "₽"
+    };
 document.addEventListener('DOMContentLoaded', () => {
+
     const searchInput = document.getElementById('search-input');
     const searchBtn = document.querySelector('.search-btn');
 
@@ -14,7 +22,7 @@ document.addEventListener('DOMContentLoaded', () => {
             searchBtn.click();
         }
     });
-   
+
 });
 document.querySelectorAll('.url-btn').forEach(btn => {
     btn.addEventListener('click', function () {
@@ -30,7 +38,7 @@ fetch("./products.json")
 
         let products = document.getElementById("product-container");
         products.innerHTML = "";
-        data.slice(0,4).map(product => {
+        data.slice(0, 4).map(product => {
             let box = document.createElement('div');
             box.className = "box";
             box.dataset.price = product.price;
@@ -87,24 +95,18 @@ currencyIconContainer.addEventListener("click", () => {
         currencyFlag = false;
     }
 })
-let selectedCurrency = "USD";
-let baseCurrency = {}
-let baseCurrencySimvol = {
-    USD: "$",
-    AZN: "₼",
-    RUB: "₽"
-}
+
 async function exchange() {
     const res = await fetch("https://v6.exchangerate-api.com/v6/e72f285414f4085527b4db02/latest/USD")
     const data = await res.json();
     baseCurrency = data.conversion_rates
-    localStorage.setItem('exchangeRates',JSON.stringify(baseCurrency))
+    localStorage.setItem('exchangeRates', JSON.stringify(baseCurrency))
 }
 exchange();
 [...document.querySelectorAll('.dropdown-menu button')].forEach(btn => {
     btn.addEventListener('click', () => {
         selectedCurrency = btn.textContent;
-        localStorage.setItem('selectedCurrency',selectedCurrency);
+        localStorage.setItem('selectedCurrency', selectedCurrency);
         document.querySelectorAll(".box").forEach(box => {
             let usd = box.dataset.price
             let newPrice = (usd * baseCurrency[selectedCurrency]).toFixed(2);
@@ -138,27 +140,27 @@ let slideIndex = 1;
 showSlides(slideIndex);
 
 function plusSlides(n) {
-  showSlides(slideIndex += n);
+    showSlides(slideIndex += n);
 }
 
 function currentSlide(n) {
-  showSlides(slideIndex = n);
+    showSlides(slideIndex = n);
 }
 function showSlides(n) {
-  let slides = document.querySelectorAll(".my-slides");
-  let dots = document.querySelectorAll(".dot");
+    let slides = document.querySelectorAll(".my-slides");
+    let dots = document.querySelectorAll(".dot");
 
-  if (n > slides.length) { slideIndex = 1 }
-  if (n < 1) { slideIndex = slides.length }
+    if (n > slides.length) { slideIndex = 1 }
+    if (n < 1) { slideIndex = slides.length }
 
-  slides.forEach(slide => slide.style.display = "none");
-  dots.forEach(dot => dot.classList.remove("active"));
+    slides.forEach(slide => slide.style.display = "none");
+    dots.forEach(dot => dot.classList.remove("active"));
 
-  slides[slideIndex - 1].style.display = "block";
-  dots[slideIndex - 1].classList.add("active");
+    slides[slideIndex - 1].style.display = "block";
+    dots[slideIndex - 1].classList.add("active");
 }
 document.querySelectorAll(".dot").forEach((dot, index) => {
-  dot.addEventListener("click", () => currentSlide(index + 1));
+    dot.addEventListener("click", () => currentSlide(index + 1));
 });
 document.querySelector(".prev").addEventListener("click", () => plusSlides(-1));
 document.querySelector(".next").addEventListener("click", () => plusSlides(1));

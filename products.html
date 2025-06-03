@@ -28,6 +28,7 @@
             <div class="icons">
                 <a href="./favorites.html"><i class="fa-regular fa-heart" style="color: #ffffff;"></i></a>
                 <a href="./basket.html"><i class="fa-solid fa-basket-shopping" style="color: #ffffff;"></i></a>
+                <a href="./compare.html"><i class="fa-solid fa-code-compare" style="color: #ffffff;"></i></a>
             </div>
         </div>
         <div class="trapezoid-container">
@@ -41,9 +42,9 @@
             <li><a href="./contact.html">Contact</a></li>
             <li class="currency-hover">Currency<i class="fa-solid fa-chevron-down" style="color: #000000;"></i>
                 <div class="dropdown-menu">
-                    <button>USD</button>
-                    <button>AZN</button>
-                    <button>RUB</button>
+                    <button class= "currency-option"data-currency="USD">USD</button>
+                    <button class="currency-option" data-currency="USD">AZN</button>
+                    <button class="currency-option" data-currency="RUB">RUB</button>
                 </div>
             </li>
             <li><a href="./products.html">Products</a><i class="fa-solid fa-chevron-down categories-icon"
@@ -169,11 +170,6 @@
                         </div>
 
                         <div class="price-inputs">
-                            <div class="extr-label">
-                                <input type="text" placeholder="min.." class="from-label" id="min-price">
-                                <div class="line"></div>
-                                <input type="text" placeholder="max.." class="to-label" id="max-price">
-                            </div>
                             <div class="inputs">
                                 <label><input type="radio" name="price" value="100-200">100-200</label>
                                 <label><input type="radio" name="price" value="300-500">300-500</label>
@@ -276,7 +272,7 @@
         </div>
 
     </footer>
-    <script src="./products.js"></script>
+    <script src="./scripts/products.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </body>
 
